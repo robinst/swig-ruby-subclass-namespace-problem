@@ -1,20 +1,22 @@
 require 'base'
-require 'subtag'
-require 'subfile'
+require 'sub'
 
-def show(tag)
-  puts "Ruby class  : " + tag.class.to_s
-  puts "__swigtype__: " + tag.instance_variable_get(:@__swigtype__)
+
+def show(o)
+  puts "Ruby class  : " + o.class.to_s
+  puts "__swigtype__: " + o.instance_variable_get(:@__swigtype__)
 end
 
+bar = Foo::Sub::bar
+subbar = Foo::Sub::subbar
 
-file = Foo::Subfile::File.new
-tag = file.tag
-subtag = file.subtag
+puts "------"
+puts "bar"
+show bar
 
-show tag
-puts "-"
-show subtag
+puts "------"
+puts "subbar"
+show subbar
 
-error = (tag.class == subtag.class)
+error = (bar.class == subbar.class)
 exit 1 if error
