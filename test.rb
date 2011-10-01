@@ -3,8 +3,8 @@ require 'sub'
 
 
 def show(o)
-  puts "Ruby class  : " + o.class.to_s
-  puts "__swigtype__: " + o.instance_variable_get(:@__swigtype__)
+  puts "SWIG type:  " + o.instance_variable_get(:@__swigtype__)
+  puts "Ruby class: " + o.class.to_s
 end
 
 bar = Foo::Sub::bar
